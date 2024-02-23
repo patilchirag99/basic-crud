@@ -1,6 +1,7 @@
 package com.chirag.basiccrud.service.impl;
 
 import com.chirag.basiccrud.exception.CloudVendorNotFoundException;
+import com.chirag.basiccrud.exception.VendorNotFoundException;
 import com.chirag.basiccrud.model.CloudVendor;
 import com.chirag.basiccrud.repository.CloudVendorRepository;
 import com.chirag.basiccrud.service.CloudVendorService;
@@ -42,7 +43,7 @@ public class CloudVendorServiceImpl implements CloudVendorService {
     }
 
     @Override
-    public CloudVendor getCloudVendor(String vendorId) {
+    public CloudVendor getCloudVendor(String vendorId){
         if(cloudVendorRepository.findById(vendorId).isEmpty())
             throw new CloudVendorNotFoundException("Requested cloud vendor does not exist");
         return cloudVendorRepository.findById(vendorId).get();

@@ -1,5 +1,6 @@
 package com.chirag.basiccrud.controller;
 
+import com.chirag.basiccrud.exception.VendorNotFoundException;
 import com.chirag.basiccrud.model.CloudVendor;
 import com.chirag.basiccrud.service.CloudVendorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class CloudVendorController {
     @Autowired
     CloudVendorService cloudVendorService;
     @GetMapping("/{vendorId}")
-    public CloudVendor getCloudVendorDetails(@PathVariable("vendorId") String vendorId){
+    public CloudVendor getCloudVendorDetails(@PathVariable("vendorId") String vendorId) {
         return cloudVendorService.getCloudVendor(vendorId);
     }
 
