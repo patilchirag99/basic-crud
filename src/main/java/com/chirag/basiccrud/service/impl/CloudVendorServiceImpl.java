@@ -43,7 +43,7 @@ public class CloudVendorServiceImpl implements CloudVendorService {
     }
 
     @Override
-    public CloudVendor getCloudVendor(String vendorId) throws VendorNotFoundException {
+    public CloudVendor getCloudVendor(String vendorId){
         if(cloudVendorRepository.findById(vendorId).isEmpty())
             throw new CloudVendorNotFoundException("Requested cloud vendor does not exist");
         return cloudVendorRepository.findById(vendorId).get();

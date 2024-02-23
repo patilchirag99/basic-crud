@@ -15,7 +15,7 @@ public class CloudVendorController {
     @Autowired
     CloudVendorService cloudVendorService;
     @GetMapping("/{vendorId}")
-    public CloudVendor getCloudVendorDetails(@PathVariable("vendorId") String vendorId) throws VendorNotFoundException {
+    public CloudVendor getCloudVendorDetails(@PathVariable("vendorId") String vendorId) {
         return cloudVendorService.getCloudVendor(vendorId);
     }
 

@@ -13,7 +13,7 @@ public interface CloudVendorService {
 
     public String deleteCloudVendor(String vendorId);
 
-    public CloudVendor getCloudVendor(String vendorId) throws VendorNotFoundException;
+    public CloudVendor getCloudVendor(String vendorId);
 
     public List<CloudVendor> getAllCloudVendors();
 
