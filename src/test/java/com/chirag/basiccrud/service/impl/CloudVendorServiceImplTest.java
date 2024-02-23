@@ -1,5 +1,6 @@
 package com.chirag.basiccrud.service.impl;
 
+import com.chirag.basiccrud.exception.VendorNotFoundException;
 import com.chirag.basiccrud.model.CloudVendor;
 import com.chirag.basiccrud.repository.CloudVendorRepository;
 import com.chirag.basiccrud.service.CloudVendorService;
@@ -66,7 +67,7 @@ class CloudVendorServiceImplTest {
     }
 
     @Test
-    void testGetCloudVendor() {
+    void testGetCloudVendor() throws VendorNotFoundException {
         mock(CloudVendor.class);
         mock(CloudVendorRepository.class);
         when(cloudVendorRepository.findById("1")).thenReturn(Optional.ofNullable(cloudVendor));
