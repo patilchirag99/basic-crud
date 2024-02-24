@@ -5,6 +5,7 @@ import com.chirag.basiccrud.exception.VendorNotFoundException;
 import com.chirag.basiccrud.model.CloudVendor;
 import com.chirag.basiccrud.repository.CloudVendorRepository;
 import com.chirag.basiccrud.service.CloudVendorService;
+import io.micrometer.observation.annotation.Observed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class CloudVendorServiceImpl implements CloudVendorService {
     }
 
     @Override
+    @Observed(name = "create.vendors")
     public String createCloudVendor(CloudVendor cloudVendor) {
         cloudVendorRepository.save(cloudVendor);
         return "Success";
@@ -42,6 +44,7 @@ public class CloudVendorServiceImpl implements CloudVendorService {
         return "Success";
     }
 
+    @Observed(name = "get.vendor")
     @Override
     public CloudVendor getCloudVendor(String vendorId){
         if(cloudVendorRepository.findById(vendorId).isEmpty())
@@ -49,6 +52,7 @@ public class CloudVendorServiceImpl implements CloudVendorService {
         return cloudVendorRepository.findById(vendorId).get();
     }
 
+    @Observed(name = "get.vendors")
     @Override
     public List<CloudVendor> getAllCloudVendors() {
         return cloudVendorRepository.findAll();
