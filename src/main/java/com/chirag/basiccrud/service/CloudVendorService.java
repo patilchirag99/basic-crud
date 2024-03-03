@@ -1,6 +1,5 @@
 package com.chirag.basiccrud.service;
 
-import com.chirag.basiccrud.exception.VendorNotFoundException;
 import com.chirag.basiccrud.model.CloudVendor;
 
 import java.util.List;
@@ -16,5 +15,7 @@ public interface CloudVendorService {
     public CloudVendor getCloudVendor(String vendorId);
 
     public List<CloudVendor> getAllCloudVendors();
+
+//    public String addUser(UserInfo userInfo);
 
 }
