@@ -1,12 +1,12 @@
 package com.chirag.basiccrud.service.impl;
 
 import com.chirag.basiccrud.exception.CloudVendorNotFoundException;
-import com.chirag.basiccrud.exception.VendorNotFoundException;
 import com.chirag.basiccrud.model.CloudVendor;
 import com.chirag.basiccrud.repository.CloudVendorRepository;
 import com.chirag.basiccrud.service.CloudVendorService;
 import io.micrometer.observation.annotation.Observed;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +16,10 @@ public class CloudVendorServiceImpl implements CloudVendorService {
 
     @Autowired
     CloudVendorRepository cloudVendorRepository;
+
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public CloudVendorServiceImpl(CloudVendorRepository cloudVendorRepository) {
         this.cloudVendorRepository = cloudVendorRepository;
@@ -57,4 +61,6 @@ public class CloudVendorServiceImpl implements CloudVendorService {
     public List<CloudVendor> getAllCloudVendors() {
         return cloudVendorRepository.findAll();
     }
+
+
 }
